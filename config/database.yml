@@ -1,0 +1,20 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: Bugreport_development
+  pool: 5
+  username: postgres
+  password: newpassword
+  host: localhost
+  port: 5432
+
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: Bugreport_test
+  pool: 5
+  username: postgres
+  password: newpassword
+  host: localhost
+  port: 5432
+

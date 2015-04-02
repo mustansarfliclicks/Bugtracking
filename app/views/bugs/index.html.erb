@@ -1,0 +1,56 @@
+
+<%- model_class = Pbug -%>
+<div class="page-header">
+  <h1><%= 'Bugs' %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:deadline) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:type) %></th>
+      <th><%= model_class.human_attribute_name(:image) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bug.each do |bug| %>
+      <tr>
+        <td><%= bug.id %></td>
+        <td><%= bug.title %></td>
+        <td><%= bug.description %></td>
+        <td><%= bug.deadline%></td>
+        <td><%= bug.status%></td>
+        <td><%= bug.bugtype %></td>
+        <td><%= image_tag bug.image.url.to_s, size: "70x70" %></td>
+        <td>
+    <% if can? :update, bug %>
+         <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_project_bug_path(@project,bug), :class => 'btn btn-default btn-xs' %>
+    <%end%>
+    
+    <% if can? :destroy, bug %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      project_bug_path(@project,bug),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+     <%end%>  
+     
+     <% if can? :resolve, bug %>
+         <%= link_to t('.resolve', :default => t("helpers.links.resolve")),
+                       resolve_project_bug_path(@project,bug), :class => 'btn btn-default btn-xs' %>
+     <%end%>
+
+
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

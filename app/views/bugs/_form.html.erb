@@ -1,0 +1,54 @@
+
+ <% if @bug.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(bug.errors.count, "error") %> prohibited this bug from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @bug.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'form-control' %>
+
+    </div>
+     <%= f.label :Description, :class => 'control-label' %>
+     <div class="controls">
+
+      <%= f.text_field :description, :class => 'form-control' %>
+      
+    </div>
+     <%= f.label :deadline, :class => 'control-label' %>
+     <div class="controls">
+
+      <%= f.text_field :deadline, :class => 'form-control' %>
+    
+    </div>
+     <%= f.label :status, :class => 'control-label' %>
+    <div class="form-group">
+      <%= f.select :status, [['New','new'],['Started','started']]%>
+    
+    
+     <%= f.label :type, :class => 'control-label' %>
+     
+    <%= f.select :bugtype, [['Bug','bug'],['Feature','feature']]%>
+    </div>
+    <%= f.label :image %>
+    <div class="controls">
+    <%= f.file_field :image %>
+    </div>
+
+    <%= error_span(@bug[:title]) %>
+  </div>
+
+<br><br>
+     
+

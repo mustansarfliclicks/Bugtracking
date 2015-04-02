@@ -1,0 +1,6 @@
+<h1>New Bug</h1>
+<%=form_for @bug, url: project_bugs_path, html: { method: :post, multipart: :true } do |f|%>
+  
+  <%= render 'form', f: f%> 
+  <%= f.submit "Create Bug"%>
+<%end%>

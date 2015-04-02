@@ -1,0 +1,6 @@
+<h1>Editing </h1>
+<%=form_for @bug, url: project_bug_path, html: { method: :patch } do |f|%>
+  
+  <%= render 'form', f: f%>
+  <%= f.submit "Update", :class => 'btn btn-primary'%>
+  <%end%>

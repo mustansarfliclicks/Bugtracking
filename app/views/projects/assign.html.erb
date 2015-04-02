@@ -1,0 +1,30 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%='Developers' %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:project_id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:user_type) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+    
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @developers.each do |user| %>
+      <tr>
+        <td><%= link_to user.id, assign_to_project_path(user) %></td>
+        <td><%= user.project_id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.user_type %></td>
+        <td><%= user.email %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -21,6 +21,8 @@ gem 'twitter-bootstrap-rails', '3.2.0'
 gem "carrierwave"
 gem "rmagick"
 gem 'carrierwave-postgresql'
+#heroku upload gem
+gem 'rails_12factor', group: :production
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

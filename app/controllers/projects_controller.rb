@@ -44,18 +44,10 @@ end
   end
 
   def assign
-      @@current_project=Project.find(params[:id])
+      session[:currentproject_id] = params[:id]
       @developers=User.where(:user_type=>'developer')
     
   end
-  def assign_to
-    if(@project)
-    else
-      @user=User.find(params[:id])
-      @@current_project.users<<@user
-      redirect_to projects_path
-     end
-end
 
   private
 

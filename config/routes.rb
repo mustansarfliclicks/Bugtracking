@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/assign_to'
+
 devise_for :users
   resources :projects do 
     member do
       get :assign
-      get :assign_to
     end
         resources :bugs do
              member do
@@ -11,6 +12,7 @@ devise_for :users
              end
     end
   end
+  
 
 
 

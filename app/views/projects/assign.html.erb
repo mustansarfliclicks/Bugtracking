@@ -17,9 +17,9 @@
   <tbody>
     <% @developers.each do |user| %>
       <tr>
-        <td><%= link_to user.id, assign_to_project_path(user) %></td>
+        <td><%= user.id %></td>
         <td><%= user.project_id %></td>
-        <td><%= user.name %></td>
+        <td><%= link_to user.name, assign_to_project_path(user) %></td>
         <td><%= user.user_type %></td>
         <td><%= user.email %></td>
        

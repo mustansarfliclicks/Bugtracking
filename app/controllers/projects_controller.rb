@@ -49,13 +49,13 @@ end
     
   end
   def assign_to
-      #@project=Project.find(params[:id])
+    if(@project)
+    else
       @user=User.find(params[:id])
       @@current_project.users<<@user
-      redirect_to action: "index"
-
-    
-  end
+      redirect_to projects_path
+     end
+end
 
   private
 
